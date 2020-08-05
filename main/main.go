@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/rexue2019/k8sdemo/rpc"
 	"github.com/rexue2019/micro/cfg"
- 	"github.com/rexue2019/micro/server"
+	"github.com/rexue2019/micro/server"
 )
 
 type Config struct {
@@ -15,8 +15,8 @@ type Config struct {
 type demoImp struct {
 }
 
-func (this *demoImp) HelloNoReponse(_ context.Context, req  *rpc.HelloRequest) error {
-	fmt.Println("receive", req)
+func (this *demoImp) HelloNoReponse(_ context.Context, req *rpc.HelloRequest) error {
+	fmt.Println("receive hello request", req)
 	return nil
 }
 
