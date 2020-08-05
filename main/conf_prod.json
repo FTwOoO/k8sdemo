@@ -1,0 +1,16 @@
+{
+  "Name": "k8sdemo",
+  "Version": "v1",
+  "LogLevel": "debug",
+  "Environment": "prod",
+  "Http": {
+    "Addr": "0.0.0.0:10188",
+    "EnablePrometheusMetrics": true,
+    "Route": {
+      "Host": "api2.qiuhu24.com",
+      "PathPrefix": [
+        "/spider"
+      ]
+    }
+  }
+}

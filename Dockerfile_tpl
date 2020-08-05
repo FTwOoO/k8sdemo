@@ -1,0 +1,4 @@
+FROM scratch
+COPY main/{{ .projectName }}_{{ .env }}.json /home/{{ .projectName }}.json
+COPY {{ .execBuildTarget }} /home/{{ .projectName }}
+ENTRYPOINT ["/home/{{ .projectName }}", "-conf", "/home/{{ .projectName }}.json"]
