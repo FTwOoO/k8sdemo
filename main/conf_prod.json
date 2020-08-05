@@ -4,7 +4,7 @@
   "LogLevel": "debug",
   "Environment": "prod",
   "Http": {
-    "Addr": "0.0.0.0:10188",
+    "Addr": "0.0.0.0:8080",
     "EnablePrometheusMetrics": true,
     "Route": {
       "Host": "api2.qiuhu24.com",
