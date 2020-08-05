@@ -9,7 +9,7 @@
     "Route": {
       "Host": "api2.qiuhu24.com",
       "PathPrefix": [
-        "/spider"
+        "/k8sdemo"
       ]
     }
   }

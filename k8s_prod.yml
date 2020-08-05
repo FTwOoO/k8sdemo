@@ -1,0 +1,48 @@
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8sdemo
+spec:
+  rules:
+    - host: api2.qiuhu24.com
+      http:
+        paths:
+          - path: /k8sdemo
+            backend:
+              serviceName: k8sdemo
+              servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8sdemo
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: k8sdemo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sdemo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8sdemo
+  template:
+    metadata:
+      labels:
+        app: k8sdemo
+    spec:
+      containers:
+        - name: k8sdemo
+          image: dk.livedev.shika2019.com:9443/go/k8sdemoprod:v0.0.3
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: docker-gitlab
