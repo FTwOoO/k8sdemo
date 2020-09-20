@@ -10,8 +10,11 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: '^1.14.4'
-      - name: Granting private modules access
-          run: git config --global url."https://${{ secrets.GO_MODULES_TOKEN }}:x-oauth-basic@github.com/rexue2019".insteadOf "https://github.com/rexue2019"
+      - run: |
+          git config --local --remove-section http."https://github.com/"
+          git config --global url."https://FTwOoO:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: build go project
         run: go build -o main/main main/main.go
         env:
