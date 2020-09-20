@@ -13,6 +13,8 @@ jobs:
       - run: |
           git config --local --remove-section http."https://github.com/"
           git config --global url."https://FTwOoO:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://FTwOoO:${GH_TOKEN}@github.com/".insteadOf "git@github.com:"
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: build go project
