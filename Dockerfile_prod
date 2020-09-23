@@ -1,4 +1,4 @@
 FROM scratch
 COPY main/prod.json /home/prod.json
-COPY main/k8sdemo.linux /home/k8sdemo
-ENTRYPOINT ["/home/k8sdemo", "-conf", "/home/prod.json"]
+COPY main/main /home/main
+ENTRYPOINT ["/home/main", "-conf", "/home/prod.json"]
