@@ -28,7 +28,7 @@ jobs:
         with:
           dockerfile: Dockerfile_prod
           tag: ${{ github.sha }}
-          image: ${{ github.repository }}
+          image: k8sdemo
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
