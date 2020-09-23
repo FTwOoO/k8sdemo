@@ -25,7 +25,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=github.com/rexue2019/k8sdemo
+          DOCKER_IMAGE=prod
           VERSION=noop
           if [ "${{ github.event_name }}" = "schedule" ]; then
             VERSION=nightly
