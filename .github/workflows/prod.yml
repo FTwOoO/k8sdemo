@@ -21,11 +21,11 @@ jobs:
           CGO_ENABLED: 0
           GOOS: linux
           GOARCH: amd64
-      - uses: mr-smithers-excellent/docker-build-push@v4
-        name: Build & push Docker image
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v1
         with:
-          image: github.com/rexue2019
-          registry: ghcr.io
-          dockerfile: Dockerfile_prod
-          username: ${{ github.actor }}
-          password: ${{ secrets.BUILD_TOKEN }}
+            username: ${{ github.actor }}
+            password: ${{ secrets.BUILD_TOKEN }}
+            registry: docker.pkg.github.com
+            repository: rexue2019/k8sdemo/prod
+            tag_with_ref: true
