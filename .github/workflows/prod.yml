@@ -55,7 +55,7 @@ jobs:
         with:
             username: ${{ github.actor }}
             password: ${{ secrets.BUILD_TOKEN }}
-            dockerfile: Dockerfile_prod
+            file: Dockerfile_prod
             registry: docker.pkg.github.com
             tags: ${{ steps.prep.outputs.tags }}
             labels: |
