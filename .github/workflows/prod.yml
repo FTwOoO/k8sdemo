@@ -26,7 +26,7 @@ jobs:
         with:
             username: ${{ github.actor }}
             password: ${{ secrets.BUILD_TOKEN }}
-            file: Dockerfile_prod
+            dockerfile: Dockerfile_prod
             registry: docker.pkg.github.com
             repository: rexue2019/k8sdemo/prod
             tag_with_ref: true
