@@ -38,9 +38,13 @@ jobs:
           elif [[ $GITHUB_REF == refs/pull/* ]]; then
             VERSION=pr-${{ github.event.number }}
           fi
+
+          if [ "${{ github.event_name }}" = "push" ]; then
+            VERSION="sha-${GITHUB_SHA::8}"
+          fi
           echo ::set-output name=version::${VERSION}
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-      - name: Push to GitHub Packages # doc: https://docs.github.com/en/actions/guides/publishing-docker-images
+      - name: Push to GitHub Packages # doc: https://github.com/marketplace/actions/docker-build-push
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           dockerfile: Dockerfile_prod
