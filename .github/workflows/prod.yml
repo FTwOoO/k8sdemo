@@ -43,6 +43,7 @@ jobs:
       - name: Push to GitHub Packages # doc: https://docs.github.com/en/actions/guides/publishing-docker-images
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
+          dockerfile: Dockerfile_prod
           tag: ${{ steps.prep.outputs.version }}
           image: rexue2019/k8sdemo
           registry: docker.pkg.github.com
