@@ -29,6 +29,6 @@ jobs:
           dockerfile: Dockerfile_prod
           #tag: ${{ github.sha }}
           image: docker.pkg.github.com/rexue2019/k8sdemo
-          registry: docker.pkg.github.com
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
