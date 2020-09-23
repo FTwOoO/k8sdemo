@@ -22,34 +22,12 @@ jobs:
           GOOS: linux
           GOARCH: amd64
 
-      - name: Prepare
-        id: prep
-        run: |
-          VERSION=noop
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            VERSION=nightly
-          elif [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          elif [[ $GITHUB_REF == refs/heads/* ]]; then
-            VERSION=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's#/+#-#g')
-            if [ "${{ github.event.repository.default_branch }}" = "$VERSION" ]; then
-              VERSION=edge
-            fi
-          elif [[ $GITHUB_REF == refs/pull/* ]]; then
-            VERSION=pr-${{ github.event.number }}
-          fi
-
-          if [ "${{ github.event_name }}" = "push" ]; then
-            VERSION="sha-${GITHUB_SHA::8}"
-          fi
-          echo ::set-output name=version::${VERSION}
-          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
       - name: Push to GitHub Packages # doc: https://github.com/marketplace/actions/docker-build-push
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           dockerfile: Dockerfile_prod
-          tag: ${{ steps.prep.outputs.version }}
-          image: rexue2019/k8sdemo/prod
+          tag: ${{ github.sha }}
+          image: ${{ github.repository }}/prod
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
