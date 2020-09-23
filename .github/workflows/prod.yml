@@ -1,9 +1,9 @@
-name: Greet Everyone
+name: Build docker image
 on: [push]
 
 jobs:
   build:
-    name: Greeting
+    name: build go binary
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,8 +12,8 @@ jobs:
           go-version: '^1.14.4'
       - run: |
           git config --local --remove-section http."https://github.com/"
-          git config --global url."https://github.com/".insteadOf "https://${GH_TOKEN}:x-oauth-basic@github.com/"
-          git config --global url."git@github.com:".insteadOf "https://${GH_TOKEN}:x-oauth-basic@github.com/"
+          git config --global url."https://github.com/rexue2019/".insteadOf "https://${GH_TOKEN}:x-oauth-basic@github.com/"
+          git config --global url."git@github.com/rexue2019/:".insteadOf "https://${GH_TOKEN}:x-oauth-basic@github.com/"
 
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
