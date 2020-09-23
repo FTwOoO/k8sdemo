@@ -25,7 +25,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=
+          DOCKER_IMAGE=docker.pkg.github.com/rexue2019/k8sdemo
           VERSION=noop
           if [ "${{ github.event_name }}" = "schedule" ]; then
             VERSION=nightly
@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
             file: Dockerfile_prod
-            registry: docker.pkg.github.com
+            registry:
             tags: ${{ steps.prep.outputs.tags }}
             secrets: username=${{ github.actor }},password=${{ secrets.BUILD_TOKEN }}
             labels: |
