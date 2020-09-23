@@ -49,7 +49,7 @@ jobs:
         with:
           dockerfile: Dockerfile_prod
           tag: ${{ steps.prep.outputs.version }}
-          image: rexue2019/k8sdemo
+          image: rexue2019/k8sdemo/prod
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
