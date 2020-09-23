@@ -27,8 +27,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           dockerfile: Dockerfile_prod
-          tag: ${{ github.sha }}
-          image: k8sdemo/prod
+          image: k8sdemo/prod:latest
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
