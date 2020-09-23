@@ -54,7 +54,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
             file: Dockerfile_prod
-            registry:
             tags: ${{ steps.prep.outputs.tags }}
             secrets: username=${{ github.actor }},password=${{ secrets.BUILD_TOKEN }}
             labels: |
