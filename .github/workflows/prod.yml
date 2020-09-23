@@ -53,11 +53,10 @@ jobs:
       - name: Push to GitHub Packages # doc: https://docs.github.com/en/actions/guides/publishing-docker-images
         uses: docker/build-push-action@v2
         with:
-            username: ${{ github.actor }}
-            password: ${{ secrets.BUILD_TOKEN }}
             file: Dockerfile_prod
             registry: docker.pkg.github.com
             tags: ${{ steps.prep.outputs.tags }}
+            secrets: username=${{ github.actor }},password=${{ secrets.BUILD_TOKEN }}
             labels: |
                 org.opencontainers.image.title=${{ github.event.repository.name }}
                 org.opencontainers.image.description=${{ github.event.repository.description }}
