@@ -12,7 +12,7 @@ jobs:
           go-version: '^1.14.4'
       - name: Configure git for private modules
         env:
-          TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          TOKEN: ${{ secrets.BUILD_TOKEN }}
         run: git config --global url."https://ftwooo:${TOKEN}@github.com".insteadOf "https://github.com"
       - name: build go project
         run: go build -o main/main main/main.go
