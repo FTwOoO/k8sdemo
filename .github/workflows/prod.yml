@@ -58,7 +58,7 @@ jobs:
             dockerfile: Dockerfile_prod
             registry: docker.pkg.github.com
             tags: ${{ steps.prep.outputs.tags }}
-              labels: |
+            labels: |
                 org.opencontainers.image.title=${{ github.event.repository.name }}
                 org.opencontainers.image.description=${{ github.event.repository.description }}
                 org.opencontainers.image.url=${{ github.event.repository.html_url }}
