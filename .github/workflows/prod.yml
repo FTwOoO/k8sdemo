@@ -13,12 +13,15 @@ jobs:
       - run: |
           git config --local --remove-section http."https://github.com/"
           git config --global url."https://${GH_TOKEN}:x-oauth-basic@github.com/rexue2019/".insteadOf "https://github.com/rexue2019/"
+          git config --global url."https://${GH_TOKEN}:x-oauth-basic@github.com/rexue2019/".insteadOf "git@github.com/rexue2019/:"
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: build go project
         run: go build -o main/main main/main.go
         env:
           GO111MODULE: on
+          GOPRIVATE: github.com/rexue2019/*
           CGO_ENABLED: 0
           GOOS: linux
           GOARCH: amd64
