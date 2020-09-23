@@ -11,9 +11,7 @@ jobs:
         with:
           go-version: '^1.14.4'
       - run: |
-          git config --global credential.helper store
-          echo "https://${GH_TOKEN}:x-oauth-basic@github.com" >> ~/.git-credentials
-          git config --global url."https://github.com".insteadOf git://github.com
+          git config --global url."git@github.com:".insteadOf "https://github.com/"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: build go project
@@ -22,4 +20,5 @@ jobs:
           GO111MODULE: on
           CGO_ENABLED: 0
           GOOS: linux
+          GOPRIVATE: github.com/rexue2019/*
           GOARCH: amd64
