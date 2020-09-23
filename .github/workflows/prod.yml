@@ -27,7 +27,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           dockerfile: Dockerfile_prod
-          tag: ${{ github.sha }},latest
+          tag: ${{ github.sha }}
           image: k8sdemo/prod
           registry: docker.pkg.github.com
           username: ${{ github.actor }}
