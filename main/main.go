@@ -16,7 +16,7 @@ type demoImp struct {
 }
 
 func (this *demoImp) HelloNoReponse(_ context.Context, req *rpc.HelloRequest) error {
-	fmt.Println("receive hello request", req)
+	fmt.Println("receive hello request2 ", req)
 	return nil
 }
 
