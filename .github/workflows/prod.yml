@@ -35,7 +35,7 @@ jobs:
       - name: get the image url
         run: echo "::set-env name=ImageUrl::docker.pkg.github.com/rexue2019/k8sdemo/prod:${{ github.sha }}"
       - name: update k8s file
-        run:  sed -i -e "s?image:.*?image:$ImageUrl?" ./k8s_prod.yml
+        run:  sed -i -e "s?image:.*?image:\ $ImageUrl?" k8s_prod.yml
       - name: Commit changes
         uses: EndBug/add-and-commit@v4
         with:
