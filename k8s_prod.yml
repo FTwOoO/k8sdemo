@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: k8sdemo
-          image:docker.pkg.github.com/rexue2019/k8sdemo/prod:376afd728ea7f73827ff5ff4c21fa6878ba79b66
+          image:docker.pkg.github.com/rexue2019/k8sdemo/prod:4b272e61db8191a3c76d27466378e98222c1a059
           ports:
             - containerPort: 8080
       imagePullSecrets:
