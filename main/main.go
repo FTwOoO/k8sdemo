@@ -3,9 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/rexue2019/k8sdemo/rpc"
-	"github.com/rexue2019/micro/cfg"
-	"github.com/rexue2019/micro/server"
+	"github.com/FTwOoO/k8sdemo/rpc"
+	"github.com/FTwOoO/micro/cfg"
+	"github.com/FTwOoO/micro/server"
 )
 
 type Config struct {
