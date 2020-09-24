@@ -33,7 +33,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.BUILD_TOKEN }}
       - name: get the image url
-        run: echo "::set-env name=ImageUrl::docker.pkg.github.com/FTwOoO/k8sdemo/prod:${{ github.sha }}"
+        run: echo "::set-env name=ImageUrl::docker.pkg.github.com/ftwooo/k8sdemo/prod:${{ github.sha }}"
       - name: update k8s file
         run:  sed -i -e "s?image:.*?image:\ $ImageUrl?" k8s_prod.yml
       - name: Commit changes
