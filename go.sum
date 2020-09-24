@@ -4,6 +4,7 @@ github.com/FTwOoO/micro v0.0.3 h1:CExJVTw85auzHuAWHnfzmLdWzCPBFHPk4u3RcC+Lovg=
 github.com/FTwOoO/micro v0.0.3/go.mod h1:f/+3WyyCTbF7qetVPl73kq3lChE5ufOAZRL27ka/Ikc=
 github.com/FTwOoO/util v1.0.15 h1:rbv2Zlhp/+G3QdFqjFwF3nRds5v6TEvT1/+79t3GINg=
 github.com/FTwOoO/util v1.0.15/go.mod h1:Jk4V20lSRXPaUiRmYnaNTJNvD2GO8VXUegXzCbwzgX4=
+github.com/FTwOoO/util v1.0.18 h1:bIABUJPeB1zlX22x9FNx+TzUrQWD4LTLqdvDSyFUdcE=
 github.com/FTwOoO/util v1.0.18/go.mod h1:LvFDZaMLIhrbgD2dxxAcFFOMbWP0jP2QOlzEoLNJQ8w=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
