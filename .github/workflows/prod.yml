@@ -37,11 +37,11 @@ jobs:
       - name: update k8s file
         run:  sed -i -e "s?image:.*?image:$ImageUrl?" ./k8s_prod.yml
       - name: Commit changes
-          uses: EndBug/add-and-commit@v4
-          with:
+        uses: EndBug/add-and-commit@v4
+        with:
             author_name: ${{ github.actor }}
             author_email: actions@github.com
             message: "Update k8s file"
             add: "k8s_prod.yml"
-          env:
+        env:
             GITHUB_TOKEN: ${{ secrets.BUILD_TOKEN }}
