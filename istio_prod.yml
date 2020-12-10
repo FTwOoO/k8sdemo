@@ -1,0 +1,29 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: k8sdemo-virtualservice
+  namespace: default
+spec:
+  gateways:
+    - api2-gateway
+  hosts:
+    - '*'
+  http:
+    - route:
+        - destination:
+            host: k8sdemo
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: api2-gateway
+  namespace: default
+  selector:
+    istio: ingressgateway
+  servers:
+    - hosts:
+        - '*'
+      port:
+        name: http
+        number: 80
+        protocol: HTTP
